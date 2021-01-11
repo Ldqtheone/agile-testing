@@ -7,7 +7,7 @@ import org.junit.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-public class HeroTest {
+public class EnemyTest {
 
 	Hero hero;
 	Enemy enemy;
@@ -35,33 +35,27 @@ public class HeroTest {
 	}
 
 	@Test
-	public void testHeroLevelUp() throws Exception {
-		hero.levelUp();
-		assertThat(hero, hasProperty("level", is(2)));
-	}
-
-	@Test
-	public void testHeroAttack() throws Exception {
-		hero.attack(enemy);
+	public void testEnemyTakeDamage() throws Exception {
+		enemy.takeDamage(5);
 		assertThat(enemy, hasProperty("hp", lessThan(15)));
 	}
 
 	@Test
-	public void testHeroTakeDmg() throws Exception {
-		hero.takeDamage(5);
+	public void testEnemyAttack() throws Exception {
+		enemy.attack(hero);
 		assertThat(hero, hasProperty("hp", lessThan(20)));
 	}
 
 	@Test
-	public void testHeroProperties() throws Exception {
-		assertThat(hero, hasProperty("name"));
-        assertThat(hero, hasProperty("name", is("Jaina Portvaillant")));
-		assertThat(hero, hasProperty("level"));
-		assertThat(hero, hasProperty("level", is(1)));
-		assertThat(hero, hasProperty("hp"));
-		assertThat(hero, hasProperty("hp", is(20)));
-		assertThat(hero, hasProperty("atk"));
-		assertThat(hero, hasProperty("atk", is(2)));
+	public void testEnemyProperties() throws Exception {
+		assertThat(enemy, hasProperty("name"));
+		assertThat(enemy, hasProperty("name", is("Skeletton")));
+		assertThat(enemy, hasProperty("level"));
+		assertThat(enemy, hasProperty("level", is(1)));
+		assertThat(enemy, hasProperty("hp"));
+		assertThat(enemy, hasProperty("hp", is(15)));
+		assertThat(enemy, hasProperty("atk"));
+		assertThat(enemy, hasProperty("atk", is(1)));
 	}
 
 }

@@ -14,7 +14,7 @@ public class Enemy {
         this.name = name;
         this.level = level;
         this.hp = 15*level;
-        this.atk = 1*level;
+        this.atk = level;
     }
 
     public String getName(){
