@@ -50,12 +50,7 @@ public class EnemyTest {
 	public void testEnemyProperties() throws Exception {
 		assertThat(enemy, hasProperty("name"));
 		assertThat(enemy, hasProperty("name", is("Skeletton")));
-		assertThat(enemy, hasProperty("level"));
-		assertThat(enemy, hasProperty("level", is(1)));
 		assertThat(enemy, hasProperty("hp"));
 		assertThat(enemy, hasProperty("hp", is(15)));
-		assertThat(enemy, hasProperty("atk"));
-		assertThat(enemy, hasProperty("atk", is(1)));
 	}
-
 }
