@@ -19,7 +19,10 @@ public class FunctionalTest {
 
     @Before
     public void setUp() throws Exception {
-        System.setProperty("webdriver.chrome.driver","chromedriver.exe");
+
+        String OS = System.getProperty("os.name").toLowerCase();
+        System.out.println(OS);
+        System.setProperty("webdriver.chrome.driver", OS.contains("win") ? "chromedriver.exe" : "/Library/Java/JUNIT/chromedriver");
 		driver = new ChromeDriver();
 	    	// Seems no more working in last Chrome versions
 		// driver.manage().window().maximize();
